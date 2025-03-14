@@ -94,18 +94,25 @@ const randomColor = function() {
 
 const numList = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
 let index = 0;
-
+let direction = 1;
 const darkerSq = function () {
 
-    if (index < numList.length) {
+    let opacity = numList[index];
 
-        let opacity = numList[index];
-        index++;
-        return opacity.toString();
+    if (index === numList.length - 1) {
 
-    } else {return 1;}
+        direction = -1;
+        
 
+    } else if (index === 0){
 
+        direction = 1;
+
+    }
+
+    index += direction;
+
+    return opacity.toString();
 
 }
 
